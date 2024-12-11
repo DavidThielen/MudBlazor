@@ -164,7 +164,7 @@ namespace MudBlazor
         [Obsolete("Use Value property instead.")]
         public int SelectedValue
         {
-            get => (int) Math.Round(Value);
+            get => (int)Math.Round(Value);
             set => Value = value;
         }
 

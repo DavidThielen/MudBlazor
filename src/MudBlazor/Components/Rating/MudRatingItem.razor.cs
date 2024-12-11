@@ -161,10 +161,10 @@ namespace MudBlazor
             {
                 // full icon when RatingItem hovered
                 if (Rating.HoveredValue.Value >= ItemValue)
-                return Rating.FullIcon;
-                    // empty icon when equal or higher RatingItem value clicked, but less value hovered
-                    return Rating.EmptyIcon;
-                }
+                    return Rating.FullIcon;
+                // empty icon when equal or higher RatingItem value clicked, but less value hovered
+                return Rating.EmptyIcon;
+            }
 
             return GetIconState() switch
             {
@@ -186,13 +186,14 @@ namespace MudBlazor
             if (Rating.HoveredValue.HasValue)
             {
                 if (Rating.HoveredValue.Value >= ItemValue)
-            {
-                // full icon color when RatingItem hovered
+                {
+                    // full icon color when RatingItem hovered
                     return Rating.FullIconColor ?? Color.Inherit;
-            }
-                    // empty icon color when equal or higher RatingItem value clicked, but less value hovered
-                return Rating.EmptyIconColor ?? Color.Inherit;
                 }
+
+                // empty icon color when equal or higher RatingItem value clicked, but less value hovered
+                return Rating.EmptyIconColor ?? Color.Inherit;
+            }
 
             return GetIconState() switch
             {
@@ -241,7 +242,7 @@ namespace MudBlazor
             if (ratingValue is null)
                 return ItemClicked.InvokeAsync(ItemValue);
 
-            return ItemClicked.InvokeAsync((int) Math.Round(ratingValue.Value) == ItemValue ? 0 : ItemValue);
+            return ItemClicked.InvokeAsync((int)Math.Round(ratingValue.Value) == ItemValue ? 0 : ItemValue);
         }
     }
 }

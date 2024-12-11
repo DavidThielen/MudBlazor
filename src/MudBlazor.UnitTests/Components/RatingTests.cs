@@ -167,6 +167,7 @@ namespace MudBlazor.UnitTests.Components
 
             var comp = Context.RenderComponent<MudRating>(parameters => parameters
                 .Add(p => p.Value, 2.4m));
+
             // print the generated html
             // select elements needed for the test
             IRefreshableElementCollection<IElement> RatingItemsSpans() => comp.FindAll("span.mud-rating-item");
@@ -175,11 +176,11 @@ namespace MudBlazor.UnitTests.Components
             RatingItemsSpans().Count.Should().Be(5);
 
             // confirm SelectedValue == 2
-// bugbug            comp.Instance.GetState(x => x.SelectedValue).Should().Be(2);
+            // bugbug -- comp.Instance.GetState(x => x.SelectedValue).Should().Be(2);
 
             // set Value to 2.6, confirm SelectedValue == 3
             comp.SetParam(x => x.Value, 2.6m);
-// bugbug            comp.Instance.GetState(x => x.SelectedValue).Should().Be(3);
+            // bugbug -- comp.Instance.GetState(x => x.SelectedValue).Should().Be(3);
 
             // set SelectedValue to 4, confirm Value == 4
             comp.SetParam(x => x.SelectedValue, 4);

@@ -176,15 +176,15 @@ namespace MudBlazor.UnitTests.Components
             RatingItemsSpans().Count.Should().Be(5);
 
             // confirm SelectedValue == 2
-            // bugbug -- comp.Instance.GetState(x => x.SelectedValue).Should().Be(2);
+            comp.Instance.SelectedValue.Should().Be(2);
 
             // set Value to 2.6, confirm SelectedValue == 3
             comp.SetParam(x => x.Value, 2.6m);
-            // bugbug -- comp.Instance.GetState(x => x.SelectedValue).Should().Be(3);
+            comp.Instance.SelectedValue.Should().Be(3);
 
             // set SelectedValue to 4, confirm Value == 4
             comp.SetParam(x => x.SelectedValue, 4);
-            comp.Instance.GetState(x => x.Value).Should().Be(4m);
+            comp.Instance.Value.Should().Be(4m);
 
 #pragma warning restore CS0618 // Type or member is obsolete
         }
